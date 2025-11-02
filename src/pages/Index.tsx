@@ -1,13 +1,27 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { Layout } from "@/components/Layout";
+import { TaskFilters } from "@/components/TaskFilters";
+import { TaskList } from "@/components/TaskList";
+import { AddTaskDialog } from "@/components/AddTaskDialog";
 
 const Index = () => {
+  const [activeFilter, setActiveFilter] = useState("Today");
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <Layout>
+      <div className="p-4 space-y-4 max-w-6xl mx-auto">
+        <TaskFilters activeFilter={activeFilter} onFilterChange={setActiveFilter} />
+        
+        <div className="space-y-6">
+          <div>
+            <h2 className="text-lg font-semibold mb-3 text-foreground">Your Tasks</h2>
+            <TaskList />
+          </div>
+        </div>
+        
+        <AddTaskDialog />
       </div>
-    </div>
+    </Layout>
   );
 };
 
