@@ -51,7 +51,10 @@ export function AppSidebar() {
   };
 
   return (
-    <Sidebar className="border-r border-border/50 backdrop-blur-glass bg-card/80">
+    <Sidebar 
+      className="border-r border-border/50 backdrop-blur-glass bg-card/80"
+      collapsible="offcanvas"
+    >
       <SidebarHeader className="p-6 border-b border-border/50">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center shadow-soft">
